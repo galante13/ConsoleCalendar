@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60EFEEDC-8B2F-410E-98DE-866D0CC80F12}</ProjectGuid>
+    <ProjectGuid>{CC234460-40C9-4506-B768-646EE4AC5E69}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Naukowcy.ConsoleCalendar.App</RootNamespace>
