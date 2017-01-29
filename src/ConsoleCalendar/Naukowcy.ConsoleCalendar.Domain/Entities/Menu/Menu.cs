@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Naukowcy.ConsoleCalendar.Domain.Entities
 namespace Naukowcy.ConsoleCalendar.Domain.Entities
 {
     public class Menu
