@@ -59,14 +59,16 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
 
             var daysInMonth = DateTime.DaysInMonth(year, month);
 
-            //var firstDayOfWeek = new DateTime(year, month, 1).DayOfWeek;
-            //var daysShift = (int)firstDayOfWeek;
+            var firstDayOfWeek = new DateTime(year, month, 1).DayOfWeek;
+            var daysShift = (int)firstDayOfWeek;
+
+            WriteGaps(firstDayOfWeek);
 
             for (int day = 1; day <= daysInMonth; day++)
             {
                 WriteDay(day);
 
-                if (day % 7 == 0)
+                if ((day + daysShift) % 7 == 0)
                 {
                     Console.Write(Environment.NewLine);
                 }
@@ -79,7 +81,22 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
             WriteGaps(day);
         }
 
-        private void WriteGaps(int day)
+        private void WriteGaps(DayOfWeek day)
+        {
+            var dayGaps = (int) day;
+
+            WriteGapsWithSkip(dayGaps);
+        }
+
+        private void WriteGapsWithSkip(int daysShift)
+        {
+            while (daysShift-- > 0)
+            {
+                WriteGaps();
+            }
+        }
+
+        private void WriteGaps(int? day = null)
         {
             var gapsCount = GetGapsToFillDayContainerCount(day);
 
@@ -92,9 +109,14 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
 
         }
 
-        private int GetGapsToFillDayContainerCount(int day)
+        private int GetGapsToFillDayContainerCount(int? day = null)
         {
-            int daysLength = day.ToString().Length;
+            int daysLength = 0;
+
+            if (day.HasValue)
+            {
+                daysLength = day.ToString().Length;
+            }
 
             return DayContainerLength - daysLength;
         }

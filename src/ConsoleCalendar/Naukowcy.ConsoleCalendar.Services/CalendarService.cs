@@ -9,7 +9,7 @@ namespace Naukowcy.ConsoleCalendar.Services
 
         public void Run()
         {
-            Calendar.Instance.DrawMonth(DateTime.Today);
+            Calendar.Instance.DrawMonth(DateTime.Today.AddMonths(1));
         }
     }
 }
