@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Naukowcy.ConsoleCalendar.Domain.Entities
 {
-    public class Menu
+    public sealed class Menu
     {
         public static Menu Instance
         {
