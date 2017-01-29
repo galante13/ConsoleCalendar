@@ -40,7 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Naukowcy.ConsoleCalendar.Domain\Naukowcy.ConsoleCalendar.Domain.csproj">
+      <Project>{c521fdfb-7232-4b81-aec9-b72509923b9a}</Project>
+      <Name>Naukowcy.ConsoleCalendar.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
