@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 using Naukowcy.ConsoleCalendar.Services;
 
 namespace Naukowcy.ConsoleCalendar.App

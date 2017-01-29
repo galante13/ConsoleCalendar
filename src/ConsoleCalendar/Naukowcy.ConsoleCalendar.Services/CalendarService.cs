@@ -1,4 +1,5 @@
-﻿using Naukowcy.ConsoleCalendar.Domain.Entities;
+﻿using System;
+using Naukowcy.ConsoleCalendar.Domain.Entities;
 
 namespace Naukowcy.ConsoleCalendar.Services
 {
@@ -8,7 +9,7 @@ namespace Naukowcy.ConsoleCalendar.Services
 
         public void Run()
         {
-            Calendar.Instance.Draw();
+            Calendar.Instance.DrawMonth(DateTime.Today);
         }
     }
 }
