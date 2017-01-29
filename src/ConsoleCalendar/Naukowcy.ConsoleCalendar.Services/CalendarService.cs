@@ -8,7 +8,7 @@ namespace Naukowcy.ConsoleCalendar.Services
 
         public void Run()
         {
-            _menu.Draw();
+            Calendar.Instance.Draw();
         }
     }
 }

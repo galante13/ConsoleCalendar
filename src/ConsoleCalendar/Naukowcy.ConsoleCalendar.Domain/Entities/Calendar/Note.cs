@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Naukowcy.ConsoleCalendar.Domain.Entities.Calendar
+namespace Naukowcy.ConsoleCalendar.Domain.Entities
 {
     public class Note
     {

@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 
-namespace Naukowcy.ConsoleCalendar.Domain.Entities.Calendar
+namespace Naukowcy.ConsoleCalendar.Domain.Entities
 {
     public sealed class Calendar
     {
+        private const string Gap = " ";
+
         public static Calendar Instance
         {
             get
@@ -28,5 +32,19 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities.Calendar
         private static readonly object SyncRoot = new object();
 
         public ICollection<Note> Note { get; set; }
+
+        public void Draw()
+        {
+            DrawCalendarHeader();
+        }
+
+        private void DrawCalendarHeader()
+        {
+            var names = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
+
+            var header = string.Join(Gap, names);
+
+            Console.Write(header);
+        }
     }
 }
