@@ -20,7 +20,7 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
 
         public void Draw()
         {
-            //TODO Implement
+            Console.Write($"Option {(int)OptionId}. {Message}");
         }
     }
 
