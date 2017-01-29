@@ -1,0 +1,32 @@
+1. Za³o¿yæ konto na github.
+2. Wrzuciæ tam swój kalendarz.
+3. Napisaæ na grupie link do swojego repo.
+
+https://git-scm.com/download/win link do gita
+
+git commands
+
+git ignore  https://help.github.com/articles/ignoring-files/
+
+git add --all
+
+git commit -m "Message"
+
+git push
+
+
+Pattern: Singleton
+
+ctrl .
+
+https://github.com/galante13/ConsoleCalendar
+
+sourcetree
+
+SOLID
+
+jak SOLID jest wykorzystany w moim kalendarzu
+
+F12 przejscie do implementacji
+
+ctrl rr
