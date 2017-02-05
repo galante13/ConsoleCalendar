@@ -1,0 +1,10 @@
+0. git pull --rebase (Pull)
+1. git status
+2. git add --all (stage all)
+3. git commit -m "##Message##" (Commit)
+4. git push (Push)
+
+
+!!!0. how to clone github repostiory
+
+Remember about .gitignore (read about it first)
