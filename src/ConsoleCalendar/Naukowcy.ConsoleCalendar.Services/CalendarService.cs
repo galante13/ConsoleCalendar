@@ -5,11 +5,34 @@ namespace Naukowcy.ConsoleCalendar.Services
 {
     public class CalendarService
     {
-        private readonly Menu _menu = Menu.Instance; 
-
         public void Run()
         {
-            Calendar.Instance.DrawMonth(DateTime.Today.AddMonths(1));
+            Menu.Instance.Draw();
+            NodeOption? option;
+            do
+            {
+                option = ReadOption();
+
+            } while (!option.HasValue);
+
+            Menu.Instance.ChooseOption(option.Value);
+
+            Run();
+        }
+
+        private NodeOption? ReadOption()
+        {
+            var userOption = Console.ReadLine();
+
+            NodeOption nodeOption;
+
+            if (!Enum.TryParse(userOption, out nodeOption))
+            {
+                Console.WriteLine($"Cannot choose option {userOption}");
+                return null;
+            }
+
+            return nodeOption;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Naukowcy.ConsoleCalendar.Domain.Entities
 {
@@ -29,10 +30,15 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
             }
         }
 
+        private Calendar()
+        {
+            Notes = new List<Note>();
+        }
+
         private static volatile Calendar _instance;
         private static readonly object SyncRoot = new object();
 
-        public ICollection<Note> Note { get; set; }
+        public ICollection<Note> Notes { get; set; }
 
         public void DrawMonth(DateTime yearAndMonth)
         {
@@ -41,6 +47,84 @@ namespace Naukowcy.ConsoleCalendar.Domain.Entities
             Console.WriteLine();
 
             DrawBody(yearAndMonth);
+        }
+
+        public void ShowToday()
+        {
+            Console.WriteLine(DateTime.Today);
+        }
+
+        public void ShowActualMonth()
+        {
+            DrawMonth(DateTime.Today);
+        }
+
+        public void ShowGivenMonth()
+        {
+            var month = ReadNumberDatePart("Month:");
+            var year = ReadNumberDatePart("Year:");
+
+            var date = new DateTime(year, month, 1);
+
+            DrawMonth(date);
+        }
+
+        public void AddNote()
+        {
+            var day = ReadNumberDatePart("Day:");
+            var month = ReadNumberDatePart("Month:");
+            var year = ReadNumberDatePart("Year:");
+
+            var date = new DateTime(year, month, day);
+            var content = ReadString("Content");
+
+            var note = new Note(content, date);
+
+            Notes.Add(note);
+        }
+
+        public void ShowNotes()
+        {
+            var day = ReadNumberDatePart("Day:");
+            var month = ReadNumberDatePart("Month:");
+            var year = ReadNumberDatePart("Year:");
+
+            var date = new DateTime(year, month, day);
+            var notes = Notes.Where(x => x.Date.Date == date.Date);
+
+            foreach (var note in notes)
+            {
+                note.Draw();
+                Console.WriteLine();
+            }
+
+        }
+
+        public void Close()
+        {
+            Environment.Exit(Environment.ExitCode);
+        }
+
+        private string ReadString(string message)
+        {
+            Console.WriteLine(message);
+            return Console.ReadLine();
+        }
+
+        private short ReadNumberDatePart(string message)
+        {
+            Console.WriteLine(message);
+            var partFromConsole = Console.ReadLine();
+
+            short part;
+
+            if (!Int16.TryParse(partFromConsole, out part))
+            {
+                //TODO handle error
+            }
+            //TODO should check scope of the part
+
+            return part;
         }
 
         private void DrawCalendarHeader()
