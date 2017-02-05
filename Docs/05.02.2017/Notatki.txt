@@ -1,0 +1,10 @@
+1. Przeczytać o singleton.
+2. Git repo SourceTree
+3. SOLID
+4. Poczytać o typach referencyjnych i wartościowych
+5. Poczytać o == vs Equals
+**6. Poczytać o delegatach 
+7. Nullable struktura
+8. Zabezpieczyc sie przed bledami w waszych aplikcjach
+9. PRzestudiowac moj kod kalendarza z githuba mozecie sobie go sciagnac pobawic sie
+**10. moze tam error handling ogarnac
